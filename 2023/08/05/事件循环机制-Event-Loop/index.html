@@ -5,8 +5,8 @@
   <meta name="Volantis" content="5.7.7">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://awesomeboy.cn/archives/2023/page/5/"/>
+  
+  <link rel="canonical" href="http://awesomeboy.cn/2023/08/05/事件循环机制-event-loop/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -46,18 +46,21 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>归档：2023 - My Blog</title>
-  <meta name="keywords" content="null">
-  <meta desc name="description" content="Cai - Cai - My Blog">
+  <title>浏览器的事件循环机制(Event Loop) - My Blog</title>
+  <meta name="keywords" content="JS,null">
+  <meta desc name="description" content="Promise - Cai - My Blog">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="http://awesomeboy.cn/archives/2023/page/5/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器的事件循环机制(Event Loop)">
+<meta property="og:url" content="http://awesomeboy.cn/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Cai">
+<meta property="og:description" content="Promise">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2023-08-05T08:16:44.000Z">
+<meta property="article:modified_time" content="2023-09-13T13:30:20.434Z">
 <meta property="article:author" content="Cai">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2203,7 +2206,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2708,7 +2711,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper  search' style="display: ;">
+      <div id="none" class='cover-wrapper post search' style="display: none;">
         
   <div id="parallax-window"></div>
 
@@ -2786,16 +2789,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-	
-		
-  <section class="post-list">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/07/17/vue3-App-vue相关报红线/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/08/05/事件循环机制-Event-Loop/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="My Blog">
   </span>
@@ -2804,653 +2799,366 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="Cai">
   </span>
   
-  
+
+
   
     <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/07/17/vue3-App-vue%E7%9B%B8%E5%85%B3%E6%8A%A5%E7%BA%A2%E7%BA%BF/">
-        <img itemprop="image" class='headimg' alt="vue3@/App.vue相关报红线" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202308102154302.png'/>
+      <a class='headimg-a'>
+        <img itemprop="image" class='headimg' src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132130995.png'/>
       </a>
     </div>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/17/vue3-App-vue%E7%9B%B8%E5%85%B3%E6%8A%A5%E7%BA%A2%E7%BA%BF/"  itemprop="url">
-        vue3@/App.vue相关报红线
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      <p>vue3@/App.vue相关报红线</p>
     
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      <h1 class="title" itemprop="name headline">
+        浏览器的事件循环机制(Event Loop)
+      </h1>
+      <div class='new-meta-box'>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-17T12:19:58+08:00">2023-07-17</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Vue%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">Vue项目开发</a>
           
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Vue%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" itemprop="url"><span itemprop="name">Vue项目开发</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/17/vue3-App-vue%E7%9B%B8%E5%85%B3%E6%8A%A5%E7%BA%A2%E7%BA%BF/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="" rel="nofollow">
+    <img itemprop="image" src="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202303071729440.jpg" class="lazyload" data-srcset="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202303071729440.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">Cai</p>
+  </a>
 </div>
 
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/JS/">JS</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/JS/" itemprop="url"><span itemprop="name">JS</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2023-08-05T16:16:44+08:00">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2023年8月5日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="busuanzi_value_page_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+      
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h2 id="一：什么是浏览器的事件循环机制？"><a href="#一：什么是浏览器的事件循环机制？" class="headerlink" title="一：什么是浏览器的事件循环机制？"></a>一：什么是浏览器的事件循环机制？</h2><ul>
+<li>浏览器的事件循环是指在<code>Web浏览器</code>中<code>对事件的处理机制</code>。它是基于异步编程模型，运行在JS的引擎之中</li>
+</ul>
+<h2 id="二：浏览器的进程和线程"><a href="#二：浏览器的进程和线程" class="headerlink" title="二：浏览器的进程和线程"></a>二：浏览器的进程和线程</h2><blockquote>
+<p>首先要了解我们所编写的J<code>JS</code>代码最终是怎么在浏览器中执行的</p>
+</blockquote>
+<p><img src="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309131957943.png" class="lazyload" data-srcset="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309131957943.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="浏览器工作原理（一）：浏览器的进程与线程- zhangsai - 博客园"></p>
+<blockquote>
+<p>浏览器是一个复杂的应用程序，运行时候通常包含多个<code>进程</code>和多个<code>线程</code>，用于执行不同的任务和管理不同的资源</p>
+</blockquote>
+<ul>
+<li>进程：是操作系统进行资源的分配和调度的基本单位，<code>进程是程序执行的基本实体</code></li>
+<li>线程：是操作系统能够进行运算的最小单位，一个进程中可以并发执行多个线程，<code>每个线程并行执行不同的任务</code></li>
+</ul>
+<p><code>浏览器的进程和线程</code></p>
+<ul>
+<li><p>渲染进程负责加载解析和渲染页面内容，每个标签页通常运行在独立的渲染进程中，每个渲染进程都包含多个线程</p>
+<ul>
+<li>GUI线程：GUI主线程（也称为UI线程）是浏览器中负责处理用户界面操作和渲染的线程。它负责响应用户的交互操作、更新页面的显示等任务</li>
+<li>JS引擎线程：负责<code>解释</code>和<code>执行</code>JS代码，将JS代码转换成可执行指令，并按照指令的顺序进行执行<ul>
+<li>在浏览器中，JS引擎的线程是单线程，一次只能执行一个任务，在执行JS代码时，用到了异步编程模型，通过事件循环机制处理异步任务，这样可以使得JS可以处理耗时的操作而不阻塞用户界面的相应</li>
+</ul>
+</li>
+<li>事件监听线程：浏览器中负责监听和触发事件的线程。它是浏览器的一部分，用于处理用户输入、网络操作、定时器等事件的触发和相应。</li>
+<li>定时器线程负责管理和触发定时器相关的任务，如setTimeout和setInterval</li>
+<li>异步http请求线程：当发起AJAX请求时，浏览器会创建一个独立的线程来处理网络请求，该线程负责与服务器进行通信并接收响应</li>
+</ul>
+</li>
+<li><p>插件进程负责控制网络使用的所有插件</p>
+</li>
+<li><p>GPU进程负责整个浏览器界面的渲染</p>
+</li>
+</ul>
+<h2 id="三：同步和异步"><a href="#三：同步和异步" class="headerlink" title="三：同步和异步"></a>三：同步和异步</h2><p>在<code>JavaScript</code>中，所有的任务都可以分为</p>
+<ul>
+<li>同步任务：同步任务会在GUI线程（主线程）和JS引擎线程中进行执行<ul>
+<li>GUI线程：主要负责页面的渲染，所以不能被长时间的同步代码阻塞</li>
+<li>JS引擎线程：会阻碍其它任务的执行，包括GUI主线程的执行，如果JS引擎线程上的同步任务多的话，会导致页面的渲染和用户交互被暂时中断</li>
+</ul>
+</li>
+<li>异步任务：异步执行的任务，比如<code>ajax</code>网络请求，<code>setTimeout </code>定时函数等<ul>
+<li>定时器线程</li>
+<li>异步http请求线程</li>
+<li>事件监听线程</li>
+</ul>
+</li>
+</ul>
+<h2 id="三：宏任务和微任务"><a href="#三：宏任务和微任务" class="headerlink" title="三：宏任务和微任务"></a>三：宏任务和微任务</h2><blockquote>
+<p>异步任务又分为宏任务和微任务</p>
+</blockquote>
+<ul>
+<li>宏任务：需要在事件循环中<code>单独执行</code>的任务单元<ul>
+<li>渲染事件（如绘制页面、重新布局等）</li>
+<li>用户交互事件（如鼠标点击、键盘事件等）</li>
+<li>定时器事件（如 <code>setTimeout</code> 和 <code>setInterval</code> 的回调函数）</li>
+<li>网络请求完成、文件读写完成等异步操作的回调函数</li>
+</ul>
+</li>
+<li>微任务：在当前宏任务执行完毕后立即执行的任务单元<ul>
+<li><code>Promise</code> 的回调函数</li>
+<li><code>Object.Observer</code> </li>
+<li><code>MutaionObserver</code>的回调函数</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132101744.png" class="lazyload" data-srcset="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132101744.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20230913210116708"></p>
+<h2 id="四：事件循环机制"><a href="#四：事件循环机制" class="headerlink" title="四：事件循环机制"></a>四：事件循环机制</h2><p><img src="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132054721.png" class="lazyload" data-srcset="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132054721.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="js原理之事件循环Event Loop 宏任务与微任务async与await - 知乎"></p>
+<ul>
+<li>在事件循环中，调用栈和事件队列是两个重要的组成部分<ul>
+<li>调用栈：当执行到JS代码时候，函数调用会被添加到调用栈中，按照<code>先进后出</code>的顺序执行</li>
+<li>任务队列：存储着<code>待执行</code>的异步任务，任务队列分为<code>宏任务队列</code>和微<code>任务队列</code><ul>
+<li>宏任务队列：存储着需要在事件循环中单独执行的任务，如定时器回调、事件回调等。</li>
+<li>微任务队列：存储着需要在当前宏任务执行完毕后立即执行的任务，如 Promise 的回调函数、MutationObserver 的回调函数等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>事件循环流程</code></p>
+<ul>
+<li><ol>
+<li>当执行同步代码的时候，函数调用会依次进入到调用栈中执行</li>
+<li>当遇到异步任务时，定时器回调，定时器到期时，回调函数会进入到宏任务队列中等待执行</li>
+<li>任务队列中的任务会等到调用栈为空时候，事件循环会从任务队列取出一个任务加入到调用栈中执行</li>
+</ol>
+</li>
+</ul>
+<p><code>注意</code></p>
+<ul>
+<li>微任务队列具有更高的优先级，会在下一个宏任务执行之前被处理。所以，当微任务队列不为空时，即使宏任务队列中有待执行的任务，也会先处理微任务队列中的任务。</li>
+</ul>
+<p><code>代码</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;new Promise&#x27;</span>)</span><br><span class="line">  <span class="title function_">resolve</span>()</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">() =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;then&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132119745.png" class="lazyload" data-srcset="https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132119745.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20230913211916706"></p>
+<ul>
+<li>先执行同步代码，将console.log(1)压入调用栈中，执行完毕弹出，<code>输出1</code></li>
+<li>遇到定时器，异步任务，交给定时器线程处理，等定时器到期将回调函数加入到宏任务队列<ul>
+<li>宏任务队列：console.log(1)</li>
+</ul>
+</li>
+<li>new Promise是同步代码，直接执行，<code>输出new  Promise</code></li>
+<li>遇到.then异步代码，微任务，加入微任务队列<ul>
+<li>微任务队列：console.log(‘then’)</li>
+</ul>
+</li>
+<li>执行到console.log(3)，同步代码直接执行，<code>输出3</code></li>
+<li>同步代码全部执行完毕后，调用栈为空，要从任务队列中取出任务加入调用栈中</li>
+<li>由于微任务优先，所以从微任务队列中取出console.log(‘then’)，并执行<code>输出then</code></li>
+<li>再从宏任务队列中取出console.log(2)，并执行<code>输出2</code></li>
+</ul>
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+        
+          <div class='copyright'>
+            <blockquote>
+              
+                
+                  <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+                
+              
+                
+                  <p>本文永久链接是：<a href="http://awesomeboy.cn/2023/08/05/事件循环机制-Event-Loop/">http://awesomeboy.cn/2023/08/05/事件循环机制-Event-Loop/</a></p>
+                
+              
+            </blockquote>
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/07/16/vue3-eslint-prettier-czgit/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/07/16/vue3-eslint-prettier-czgit/">
-        <img itemprop="image" class='headimg' alt="vue3-eslint-prettier-czgit" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202308102154954.png'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/16/vue3-eslint-prettier-czgit/"  itemprop="url">
-        vue3-eslint-prettier-czgit
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>vue3 + eslint + prettier + cz-git</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-16T22:07:20+08:00">2023-07-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Vue%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">Vue项目开发</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Vue%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" itemprop="url"><span itemprop="name">Vue项目开发</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/16/vue3-eslint-prettier-czgit/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
+      <!-- 打赏组件 -->
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-09-13T21:30:20+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2023年9月13日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/07/16/计网-物理层/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
+          
   
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/07/16/%E8%AE%A1%E7%BD%91-%E7%89%A9%E7%90%86%E5%B1%82/">
-        <img itemprop="image" class='headimg' alt="计网-物理层" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202307161052180.jpg'/>
-      </a>
-    </div>
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JS</p></a></div>
+  <span hidden itemprop="keywords">JS</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/16/%E8%AE%A1%E7%BD%91-%E7%89%A9%E7%90%86%E5%B1%82/"  itemprop="url">
-        计网-物理层
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://awesomeboy.cn/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/&title=浏览器的事件循环机制(Event Loop) - My Blog&summary="
+          
+          >
+          
+            <img src="https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
     
-      <p>计算机网络物理层</p>
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awesomeboy.cn/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/&title=浏览器的事件循环机制(Event Loop) - My Blog&summary="
+          
+          >
+          
+            <img src="https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://awesomeboy.cn/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/&title=浏览器的事件循环机制(Event Loop) - My Blog&summary="
+          
+          >
+          
+            <img src="https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-16T10:49:26+08:00">2023-07-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/">计算机网络原理</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" itemprop="url"><span itemprop="name">计算机网络原理</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/16/%E8%AE%A1%E7%BD%91-%E7%89%A9%E7%90%86%E5%B1%82/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/07/16/计网概述/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/07/16/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/">
-        <img itemprop="image" class='headimg' alt="计算机网络概述" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202307161052175.jpg'/>
-      </a>
     </div>
-  
-  
+    <!-- Custom Files bottomMeta begin -->
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/16/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/"  itemprop="url">
-        计算机网络概述
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>计算机网络体系结构</p>
-    
+    <!-- Custom Files bottomMeta end -->
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-16T10:46:33+08:00">2023-07-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/">计算机网络原理</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" itemprop="url"><span itemprop="name">计算机网络原理</span></a>
-            </span>
-          
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2023/07/16/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
+        <a class='prev' href='/2023/08/10/axios%E7%9A%84%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>axios的二次封装</p>
+          <p class='content'>一：为什么要对axios进行二次封装？
+隐藏axios的细节：axios是一个强大的HTTP请求库，但它也有一些繁琐的细节需要处理，比如处理请求的错误、请求超时，以及请求的拦截等。通过二次封装，...</p>
+        </a>
+      
+      
+        <a class='next' href='/2023/08/05/LeetCode-530-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E7%BB%9D%E5%AF%B9%E5%B7%AE/'>
+          <p class='title'>LeetCode-530-二叉搜索树的最小绝对差<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>一：题目描述给你一个二叉搜索树的根节点 root ，返回 树中任意两不同节点值之间的最小差值 。
+差值是一个正数，其数值等于两值之差的绝对值。
+二：示例与提示示例 1:
+12输入：root = ...</p>
+        </a>
       
     </div>
   
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/07/15/计算机网络体系结构/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-        <img itemprop="image" class='headimg' alt="计算机网络体系结构" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202307151137204.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"  itemprop="url">
-        计算机网络体系结构
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>计算机网络体系结构</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-15T11:31:38+08:00">2023-07-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/">计算机网络原理</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" itemprop="url"><span itemprop="name">计算机网络原理</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/06/07/微型计算机系统/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/06/07/%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
-        <img itemprop="image" class='headimg' alt="微型计算机系统" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202306072203177.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/06/07/%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"  itemprop="url">
-        微型计算机系统
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>微型计算机系统的概述</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-06-07T21:56:10+08:00">2023-06-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">微机原理</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" itemprop="url"><span itemprop="name">微机原理</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/06/07/%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/06/07/8086微处理器/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/06/07/8086%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/">
-        <img itemprop="image" class='headimg' alt="8086微处理器" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202306072203982.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/06/07/8086%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/"  itemprop="url">
-        8086微处理器
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>微型计算机系统的概述</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-06-07T20:22:26+08:00">2023-06-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">微机原理</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" itemprop="url"><span itemprop="name">微机原理</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/06/07/8086%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/06/06/v-for循环图片无法显示？/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/06/06/v-for%E5%BE%AA%E7%8E%AF%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%EF%BC%9F/">
-        <img itemprop="image" class='headimg' alt="v-for循环图片无法显示？" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202306062114046.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/06/06/v-for%E5%BE%AA%E7%8E%AF%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%EF%BC%9F/"  itemprop="url">
-        v-for循环图片无法显示？
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>利用v-for去遍历src路径无法正常显示图片，需要利用require来导入使用</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-06-06T20:28:01+08:00">2023-06-06</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Vue/">Vue</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Vue/" itemprop="url"><span itemprop="name">Vue</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/06/06/v-for%E5%BE%AA%E7%8E%AF%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%EF%BC%9F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/05/29/LeetCode-26-删除有序数组中的重复项/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/05/29/LeetCode-26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">
-        <img itemprop="image" class='headimg' alt="LeetCode-26-删除有序数组中的重复项" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202303072129996.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/05/29/LeetCode-26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/"  itemprop="url">
-        LeetCode-26-删除有序数组中的重复项
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>力扣算法题</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-05-29T21:10:13+08:00">2023-05-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url"><span itemprop="name">算法</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/05/29/LeetCode-26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://awesomeboy.cn/2023/05/22/LeetCode-541-反转字符串2/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="My Blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="My Blog">
-    <meta itemprop="description" content="Cai">
-  </span>
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2023/05/22/LeetCode-541-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B22/">
-        <img itemprop="image" class='headimg' alt="LeetCode-541-反转字符串2" src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202303072129996.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/05/22/LeetCode-541-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B22/"  itemprop="url">
-        LeetCode-541-反转字符串2
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>力扣算法题</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-05-22T20:58:40+08:00">2023-05-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url"><span itemprop="name">算法</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/05/22/LeetCode-541-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B22/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/archives/2023/page/4/">
-            <section class="post prev white-box shadow" >
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          5 / 7
-        </p>
-        
-          <a class="next" rel="next" href="/archives/2023/page/6/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
   
 
 
-	
+  <article class="post white-box shadow" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -3459,258 +3167,56 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
-<section class="widget blogger desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202303071729440.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Cai.</h2>
-        
-        
-          <p>Talk is cheap.Show me your code.</p>
-
-        
-        
-          <p><span id="jinrishici-sentence">My Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://blog.csdn.net/Czc1357618897"
-              class="social fa-solid fa-c flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:1357618897@qq.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/1357618897/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-    
-  
-
-  
-    
-    
-      
-  
-  <section class="widget category desktop pjax">
-    
-  <header>
-    
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open ORANGE fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Hexo/" href="/categories/Hexo/"
-            active-action="action-categoriesHexo"
-            ><div class='name'>Hexo</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/JS/" href="/categories/JS/"
-            active-action="action-categoriesJS"
-            ><div class='name'>JS</div><div class='badge'>(13)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Volantis/" href="/categories/Volantis/"
-            active-action="action-categoriesVolantis"
-            ><div class='name'>Volantis</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Vue/" href="/categories/Vue/"
-            active-action="action-categoriesVue"
-            ><div class='name'>Vue</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Vue%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" href="/categories/Vue%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"
-            active-action="action-categoriesVueE9A1B9E79BAEE5BC80E58F91"
-            ><div class='name'>Vue项目开发</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/"
-            active-action="action-categoriesE5BEAEE69CBAE58E9FE79086"
-            ><div class='name'>微机原理</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
-            active-action="action-categoriesE695B0E68DAEE7BB93E69E84"
-            ><div class='name'>数据结构</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
-            active-action="action-categoriesE7AE97E6B395"
-            ><div class='name'>算法</div><div class='badge'>(32)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/"
-            active-action="action-categoriesE8AEA1E7AE97E69CBAE7BD91E7BB9CE58E9FE79086"
-            ><div class='name'>计算机网络原理</div><div class='badge'>(9)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-    
-  
-
-  
-    
-    
-      
-  
-  <section class="widget tagcloud desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags NEPHRITIS fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/8086%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 14px; color: #999">8086微处理器</a> <a href="/tags/C/" style="font-size: 15.43px; color: #8f8f8f">C</a> <a href="/tags/Eslint/" style="font-size: 14px; color: #999">Eslint</a> <a href="/tags/HTTP/" style="font-size: 16.86px; color: #868686">HTTP</a> <a href="/tags/HTTPS/" style="font-size: 15.43px; color: #8f8f8f">HTTPS</a> <a href="/tags/Hexo/" style="font-size: 15.43px; color: #8f8f8f">Hexo</a> <a href="/tags/JS/" style="font-size: 22.57px; color: #5f5f5f">JS</a> <a href="/tags/Promise/" style="font-size: 14px; color: #999">Promise</a> <a href="/tags/TCP/" style="font-size: 15.43px; color: #8f8f8f">TCP</a> <a href="/tags/TS/" style="font-size: 15.43px; color: #8f8f8f">TS</a> <a href="/tags/Volantis/" style="font-size: 15.43px; color: #8f8f8f">Volantis</a> <a href="/tags/Vue/" style="font-size: 18.29px; color: #7c7c7c">Vue</a> <a href="/tags/Vue3/" style="font-size: 19.71px; color: #727272">Vue3</a> <a href="/tags/axios/" style="font-size: 14px; color: #999">axios</a> <a href="/tags/cz-git/" style="font-size: 14px; color: #999">cz-git</a> <a href="/tags/prettier/" style="font-size: 14px; color: #999">prettier</a> <a href="/tags/%E4%B8%B2/" style="font-size: 15.43px; color: #8f8f8f">串</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 22.57px; color: #5f5f5f">二叉树</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 21.14px; color: #686868">双指针</a> <a href="/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" style="font-size: 14px; color: #999">双端队列</a> <a href="/tags/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 15.43px; color: #8f8f8f">反转字符串</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 18.29px; color: #7c7c7c">哈希表</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 18.29px; color: #7c7c7c">回溯</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 18.29px; color: #7c7c7c">广度优先搜索</a> <a href="/tags/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">微机原理</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 15.43px; color: #8f8f8f">排序</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.71px; color: #727272">数据结构</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/%E6%A0%88/" style="font-size: 15.43px; color: #8f8f8f">栈</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 16.86px; color: #868686">深度优先搜索</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 16.86px; color: #868686">滑动窗口</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85/" style="font-size: 14px; color: #999">组件封装</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" style="font-size: 14px; color: #999">计算机网络体系结构</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" style="font-size: 14px; color: #999">计算机网络概述</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E5%B1%82/" style="font-size: 14px; color: #999">计算机网络物理层</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 16.86px; color: #868686">链表</a>
-    </div>
-  </section>
-
-
-    
-  
-
-  
-    
-    
-      
-<section class="widget desktop pjax">
-  
-  <header>
-    
-      <i class="fa fa-map-signs PETERRIVE fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>69 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count"></div>
-        </div>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>92.1k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fa-solid fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fa-solid fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          <div id="last-update-show">2023-09-14 日</div>
-        </div>
-      
-    </div>
-  </div>
-</section>
-
-    
-  
-
-  
-    
-    
-      
-
-<section class="widget desktop mobile pjax">
-  
-  <header>
-    
-      <i class="fa-solid fa-clock WISTERIA fa-fw" aria-hidden="true"></i><span class='name'>最近更新</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <ul class="list entry navigation"><li><a class="widget-last" href="/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/"><div class="item"><time>2023-09-13</time><span>JS</span></div><span>浏览器的事件循环机制(Event Loop)</span></a></li><li><a class="widget-last" href="/2023/09/13/LeetCode-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/"><div class="item"><time>2023-09-13</time><span>算法</span></div><span>LeetCode-912-排序数组</span></a></li><li><a class="widget-last" href="/2023/03/21/%E6%8E%92%E5%BA%8F-%E5%BF%AB%E6%8E%92/"><div class="item"><time>2023-09-13</time><span>数据结构</span></div><span>排序-快排</span></a></li><li><a class="widget-last" href="/2023/09/12/%E6%89%8B%E5%86%99call-apply-bind%E6%96%B9%E6%B3%95/"><div class="item"><time>2023-09-12</time><span>JS</span></div><span>手写call,apply,bind方法</span></a></li><li><a class="widget-last" href="/2023/09/12/LeetCode-15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/"><div class="item"><time>2023-09-12</time><span>算法</span></div><span>LeetCode-15-三数之和</span></a></li></ul>
-  </div>
-</section>
-
     
   
 
 
 <div class="widget-sticky pjax">
 
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list ORANGE fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="toc-text">一：什么是浏览器的事件循环机制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="toc-text">二：浏览器的进程和线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-text">三：同步和异步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="toc-text">三：宏任务和微任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6"><span class="toc-text">四：事件循环机制</span></a></li></ol>
+    </div>
+  </section>
+
+  
+
 </div>
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3730,13 +3236,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3745,14 +3252,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     // header
     var l_header=document.getElementById("l_header");
     
-    l_header.classList.remove("show");
+    l_header.classList.add("show");
     
     
       // cover
       var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
       var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="half";
-      cover_wrapper.style.display="";
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
       scroll_down.style.display="none";
     
   
@@ -4885,7 +4392,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"My Blog","url":"http://awesomeboy.cn/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Cai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://awesomeboy.cn/","sameAs":["https://github.com/volantis-x"],"description":"Cai"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://awesomeboy.cn/","name":"My Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://awesomeboy.cn/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"http://awesomeboy.cn/archives/2023/","name":"2023年"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"My Blog","url":"http://awesomeboy.cn/","keywords":null,"description":"Cai","author":{"@type":"Person","name":"Cai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://awesomeboy.cn/","description":"Cai"},"publisher":{"@type":"Organization","name":"My Blog","url":"http://awesomeboy.cn/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://awesomeboy.cn?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"Cai","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"Cai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://awesomeboy.cn/"},"publisher":{"@type":"Organization","name":"My Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"My Blog","url":"http://awesomeboy.cn/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Cai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://awesomeboy.cn/","sameAs":["https://github.com/volantis-x"],"description":"Cai"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://awesomeboy.cn/","name":"My Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://awesomeboy.cn/categories/JS/","name":"JS"}},{"@type":"ListItem","position":3,"item":{"@id":"http://awesomeboy.cn/2023/08/05/事件循环机制-Event-Loop/","name":"浏览器的事件循环机制(Event Loop)"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"My Blog","url":"http://awesomeboy.cn/","keywords":null,"description":"Cai","author":{"@type":"Person","name":"Cai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://awesomeboy.cn/","description":"Cai"},"publisher":{"@type":"Organization","name":"My Blog","url":"http://awesomeboy.cn/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://awesomeboy.cn?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"浏览器的事件循环机制(Event Loop)","description":"Promise","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://awesomeboy.cn/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/"},"author":{"@type":"Person","name":"Cai","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://awesomeboy.cn/"},"publisher":{"@type":"Organization","name":"My Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://awesomeboy.cn/2023/08/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6-Event-Loop/","wordCount":0,"datePublished":"2023-08-05T08:16:44.000Z","dateModified":"2023-09-13T13:30:20.434Z","articleSection":"JS","keywords":"JS","image":{"@type":"ImageObject","url":"https://awesomeboy.oss-cn-chengdu.aliyuncs.com/img/202309132130995.png","width":1024,"height":768}}]</script>
 
 
 
